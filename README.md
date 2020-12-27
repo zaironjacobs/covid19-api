@@ -1,6 +1,6 @@
 COVID-19 API
 =================
-API built with FastAPI.
+COVID-19 API built with FastAPI.
 
 Works with:
 
