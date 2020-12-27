@@ -1,3 +1,0 @@
-RUN API IN PRODUCTION
-cd ~/covid19-api-fastapi
-nohup pipenv run python run.py &
