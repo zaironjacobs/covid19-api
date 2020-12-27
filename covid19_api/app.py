@@ -16,7 +16,7 @@ async def get_country(name: str):
 @app.get('/countries/', tags=["country"])
 async def get_countries():
     results = []
-    countries = await mongo_database.get_all_countries()
-    for country in countries:
+    countries = mongo_database.get_all_countries()
+    async for country in countries:
         results.append(parse_country(country))
     return results

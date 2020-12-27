@@ -12,12 +12,12 @@ class MongoDatabase:
         self.__database = self.__client[config('DATABASE')]
         self.__collection = self.__database[config('COLLECTION')]
 
-    async def get_all_countries(self):
-        """ Return all countries """
-
-        return await self.__collection.find({})
-
     async def get_country(self, name):
         """ Return a country """
 
         return await self.__collection.find_one({'name': name})
+
+    def get_all_countries(self):
+        """ Return all countries """
+
+        return self.__collection.find()
