@@ -10,7 +10,6 @@ pytest = "*"
 fastapi = "*"
 uvicorn = "*"
 python-decouple = "*"
-pydantic = "*"
 motor = "*"
 
 [requires]
