@@ -1,6 +1,6 @@
 COVID-19 API
 =================
-COVID-19 API built with FastAPI.
+COVID-19 API built with [FastAPI](https://github.com/tiangolo/fastapi).
 
 Works with:
 
