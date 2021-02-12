@@ -4,11 +4,7 @@ COVID-19 API built with [FastAPI](https://github.com/tiangolo/fastapi).
 
 Works with:
 
-- [COVID-19 Data Fetcher - Python](https://github.com/zaironjacobs/covid19-data-fetcher-python)
-
-- [COVID-19 Data Fetcher - PHP](https://github.com/zaironjacobs/covid19-data-fetcher-php)
-
-- [COVID-19 Data Fetcher - JavaScript](https://github.com/zaironjacobs/covid19-data-fetcher-javascript)
+- [COVID-19 Data Fetcher](https://github.com/zaironjacobs/covid19-data-fetcher)
 
 ### Download
 ```
