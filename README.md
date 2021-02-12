@@ -20,7 +20,8 @@ Copy the file .env.example to .env and fill in the environment variables.
 A local connection example:
 ```
 DATABASE=covid19
-COLLECTION=country
+COLLECTION_COUNTRY=country
+COLLECTION_NEWS=news
 CONNECTION_STRING=mongodb://localhost:27017
 HOST=localhost
 PORT=8050
@@ -77,5 +78,29 @@ $ pipenv run python run.py
     
     .....
     
+]
+```
+
+/news:
+```
+[
+    {
+    "title": "US CDC says fully vaccinated people need not quarantine after COVID-19 exposure",
+    "source_name": "CNA",
+    "author": "CNA",
+    "description": "WASHINGTON: People who have received the full course of...",
+    "url": "https://www.channelnewsasia.com/news/world/covid-19-vaccine-no-quarantine-14-days-exposure-us-cdc-14173034",
+    "published_at": "2021-02-11T12:37:14Z"
+    },
+    {
+    "title": "US could have averted 40% of Covid deaths, says panel examining Trump's policies (Amanda Holpuch/The Guardian)",
+    "source_name": "Memeorandum.com",
+    "author": null,
+    "description": "Amanda Holpuch / The Guardian:\nUS could have averted 40% of Covid...",
+    "url": "https://www.memeorandum.com/210211/p12",
+    "published_at": "2021-02-11T12:35:00Z"
+    },
+    
+    .....
 ]
 ```
