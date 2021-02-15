@@ -8,7 +8,7 @@ Works with:
 
 ### Download
 ```
-$ git clone https://github.com/zaironjacobs/covid19-api-fastapi
+$ git clone https://github.com/zaironjacobs/covid19-api
 ```
 
 ### Usage
@@ -25,7 +25,7 @@ PORT=8050
 
 To use:
 ```
-$ cd ~/covid19-api-fastapi
+$ cd ~/covid19-api
 $ pipenv install
 $ pipenv run python run.py
 ```
