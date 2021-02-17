@@ -1,4 +1,4 @@
-def parse_news(news) -> dict:
+def parse_article(news) -> dict:
     """ Parse the database results into a Python dictionary """
 
     return {

@@ -11,7 +11,7 @@ class MongoDatabase:
         self.__client = Client((config('CONNECTION_STRING')))
         self.__database = self.__client[config('DATABASE')]
         self.__collection_country = self.__database[config('COLLECTION_COUNTRY')]
-        self.__collection_news = self.__database[config('COLLECTION_NEWS')]
+        self.__collection_article = self.__database[config('COLLECTION_ARTICLE')]
 
     async def get_country(self, name):
         """ Return a country """
@@ -23,7 +23,7 @@ class MongoDatabase:
 
         return self.__collection_country.find()
 
-    def get_all_news(self):
-        """ Return all news """
+    def get_all_articles(self):
+        """ Return all articles """
 
-        return self.__collection_news.find()
+        return self.__collection_article.find()

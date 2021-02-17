@@ -17,7 +17,7 @@ A local connection example:
 ```
 DATABASE=covid19
 COLLECTION_COUNTRY=country
-COLLECTION_NEWS=news
+COLLECTION_ARTICLE=article
 CONNECTION_STRING=mongodb://localhost:27017
 HOST=localhost
 PORT=8050
@@ -77,7 +77,7 @@ $ pipenv run python run.py
 ]
 ```
 
-/news:
+/articles:
 ```
 [
     {
