@@ -2,8 +2,7 @@ COVID-19 API
 =================
 COVID-19 API built with [FastAPI](https://github.com/tiangolo/fastapi).
 
-Works with:
-
+## Dependencies
 - [COVID-19 Data Fetcher](https://github.com/zaironjacobs/covid19-data-fetcher)
 
 ### Download
