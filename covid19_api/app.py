@@ -8,7 +8,7 @@ app = FastAPI()
 mongo_database = MongoDatabase()
 
 
-@app.get('/country/', tags=['country'])
+@app.get('/country', tags=['country'])
 async def get_country(name: str):
     country = await mongo_database.get_country(name)
     if not country:
@@ -16,7 +16,7 @@ async def get_country(name: str):
     return parse_country(country)
 
 
-@app.get('/countries/', tags=['country'])
+@app.get('/countries', tags=['country'])
 async def get_countries():
     results = []
     countries = mongo_database.get_all_countries()
@@ -27,7 +27,7 @@ async def get_countries():
     return results
 
 
-@app.get('/articles/', tags=['articles'])
+@app.get('/articles', tags=['articles'])
 async def get_articles():
     results = []
     all_articles = mongo_database.get_all_articles()
