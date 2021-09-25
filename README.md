@@ -3,26 +3,30 @@ COVID-19 API
 COVID-19 API built with [FastAPI](https://github.com/tiangolo/fastapi).
 
 ## Dependencies
+
 - [COVID-19 Data Fetcher](https://github.com/zaironjacobs/covid19-data-fetcher)
 
 ### Download
+
 ```
 $ git clone https://github.com/zaironjacobs/covid19-api
 ```
 
 ### Usage
-Copy the file .env.example to .env and fill in the environment variables.
-A local connection example:
+
+Copy the file config-example.ini to config.ini and fill in the environment variables. A local connection example:
+
 ```
-DATABASE=covid19
-COLLECTION_COUNTRY=country
-COLLECTION_ARTICLE=article
-CONNECTION_STRING=mongodb://localhost:27017
-HOST=localhost
-PORT=8050
+database = covid19
+collection_country = country
+collection_article = article
+connection_string = mongodb://localhost:27017
+host = localhost
+port = 8050
 ```
 
 To use:
+
 ```
 $ cd ~/covid19-api
 $ pipenv install
@@ -32,6 +36,7 @@ $ pipenv run python run.py
 ### Endpoints
 
 /country?name=Netherlands:
+
 ```
 {
     "name": "Netherlands",
@@ -44,6 +49,7 @@ $ pipenv run python run.py
 ```
 
 /countries:
+
 ```
 [
     {
@@ -77,6 +83,7 @@ $ pipenv run python run.py
 ```
 
 /articles:
+
 ```
 [
     {

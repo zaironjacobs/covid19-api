@@ -9,7 +9,6 @@ pytest = "*"
 [packages]
 fastapi = "*"
 uvicorn = "*"
-python-decouple = "*"
 motor = "*"
 
 [requires]
