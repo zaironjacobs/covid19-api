@@ -2,8 +2,8 @@ from fastapi import FastAPI
 from fastapi.responses import JSONResponse, Response
 
 from .mongo_database import MongoDatabase
-from .country_helper import parse_country
-from .article_helper import parse_article
+from .models import Country
+from .models import Article
 
 app = FastAPI(docs_url=None, redoc_url='/documentation', title='COVID19 API')
 mongo_database = MongoDatabase()
@@ -21,9 +21,16 @@ async def get_country(name: str):
     """ Get a country """
 
     country = await mongo_database.get_country(name)
-    if not country:
+    if country:
+        country = Country(name=country.get('name'),
+                          confirmed=country.get('confirmed'),
+                          deaths=country.get('deaths'),
+                          active=country.get('active'),
+                          recovered=country.get('recovered'),
+                          last_updated_by_source_at=country.get('last_updated_by_source_at'))
+        return country.dict()
+    else:
         return JSONResponse(status_code=404, content={'detail': 'Country not found'})
-    return parse_country(country)
 
 
 @app.get('/countries', status_code=200, tags=['country'])
@@ -33,7 +40,13 @@ async def get_countries():
     results = []
     countries = mongo_database.get_all_countries()
     async for country in countries:
-        results.append(parse_country(country))
+        country = Country(name=country.get('name'),
+                          confirmed=country.get('confirmed'),
+                          deaths=country.get('deaths'),
+                          active=country.get('active'),
+                          recovered=country.get('recovered'),
+                          last_updated_by_source_at=country.get('last_updated_by_source_at'))
+        results.append(country.dict())
     if not results:
         return JSONResponse(status_code=404, content={'detail': 'Countries not found'})
     return results
@@ -44,9 +57,15 @@ async def get_articles():
     """ Get articles """
 
     results = []
-    all_articles = mongo_database.get_all_articles()
-    async for article in all_articles:
-        results.append(parse_article(article))
+    articles = mongo_database.get_all_articles()
+    async for article in articles:
+        article = Article(title=article.get('title'),
+                          source_name=article.get('source_name'),
+                          author=article.get('author'),
+                          description=article.get('description'),
+                          url=article.get('url'),
+                          published_at=article.get('published_at'))
+        results.append(article.dict())
     if not results:
         return JSONResponse(status_code=404, content={'detail': 'Articles not found'})
     return results

@@ -8,6 +8,7 @@ pytest = "*"
 
 [packages]
 fastapi = "*"
+pydantic = "*"
 uvicorn = "*"
 motor = "*"
 
