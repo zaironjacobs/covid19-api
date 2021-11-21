@@ -30,7 +30,7 @@ To use:
 ```
 $ cd ~/covid19-api
 $ pipenv install
-$ pipenv run python run.py
+$ pipenv run python asgi.py
 ```
 
 ### Endpoints

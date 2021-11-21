@@ -2,7 +2,6 @@ import configparser
 
 import uvicorn
 
-# Read config file
 config = configparser.RawConfigParser()
 config.read('config.ini')
 
