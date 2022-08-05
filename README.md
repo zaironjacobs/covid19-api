@@ -9,7 +9,7 @@ COVID-19 API built with [FastAPI](https://github.com/tiangolo/fastapi).
 ### Download
 
 ```
-$ git clone https://github.com/zaironjacobs/covid19-api
+git clone https://github.com/zaironjacobs/covid19-api
 ```
 
 ### Usage
@@ -28,9 +28,9 @@ port = 8050
 To use:
 
 ```
-$ cd ~/covid19-api
-$ pipenv install
-$ pipenv run python asgi.py
+cd ~/covid19-api
+pipenv install
+pipenv run python asgi.py
 ```
 
 ### Endpoints
