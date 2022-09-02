@@ -16,40 +16,36 @@ def index():
     return Response(status_code=200)
 
 
-@app.get('/country', status_code=200, tags=['country'])
-async def get_country(name: str):
-    """ Get a country """
-
-    country = await mongo_database.get_country(name)
-    if country:
-        country = Country(name=country.get('name'),
-                          confirmed=country.get('confirmed'),
-                          deaths=country.get('deaths'),
-                          active=country.get('active'),
-                          recovered=country.get('recovered'),
-                          last_updated_by_source_at=country.get('last_updated_by_source_at'))
-        return country.dict()
-    else:
-        return JSONResponse(status_code=404, content={'detail': 'Country not found'})
-
-
 @app.get('/countries', status_code=200, tags=['country'])
-async def get_countries():
-    """ Get all countries """
+async def get_countries(name: str = None):
+    """ Get countries """
 
-    results = []
-    countries = mongo_database.get_all_countries()
-    async for country in countries:
-        country = Country(name=country.get('name'),
-                          confirmed=country.get('confirmed'),
-                          deaths=country.get('deaths'),
-                          active=country.get('active'),
-                          recovered=country.get('recovered'),
-                          last_updated_by_source_at=country.get('last_updated_by_source_at'))
-        results.append(country.dict())
-    if not results:
-        return JSONResponse(status_code=404, content={'detail': 'Countries not found'})
-    return results
+    if name:
+        country = await mongo_database.get_country(name)
+        if country:
+            country = Country(name=country.get('name'),
+                              confirmed=country.get('confirmed'),
+                              deaths=country.get('deaths'),
+                              active=country.get('active'),
+                              recovered=country.get('recovered'),
+                              last_updated_by_source_at=country.get('last_updated_by_source_at'))
+            return country.dict()
+        else:
+            return JSONResponse(status_code=404, content={'detail': 'Country not found'})
+    else:
+        results = []
+        countries = mongo_database.get_all_countries()
+        async for country in countries:
+            country = Country(name=country.get('name'),
+                              confirmed=country.get('confirmed'),
+                              deaths=country.get('deaths'),
+                              active=country.get('active'),
+                              recovered=country.get('recovered'),
+                              last_updated_by_source_at=country.get('last_updated_by_source_at'))
+            results.append(country.dict())
+        if not results:
+            return JSONResponse(status_code=404, content={'detail': 'Countries not found'})
+        return results
 
 
 @app.get('/articles', status_code=200, tags=['article'])
