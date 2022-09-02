@@ -35,7 +35,7 @@ pipenv run python asgi.py
 
 ### Endpoints
 
-/country?name=Netherlands:
+/countries/Netherlands:
 
 ```
 {
