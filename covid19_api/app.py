@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse, Response
 
-from .mongo_database import MongoDatabase
+from .mongo_db import MongoDatabase
 from .models import Country
 from .models import Article
 
