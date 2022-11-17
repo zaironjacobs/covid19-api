@@ -5,6 +5,7 @@ COVID-19 API built with [FastAPI](https://github.com/tiangolo/fastapi).
 ## Dependencies
 
 - [COVID-19 Data Fetcher](https://github.com/zaironjacobs/covid19-data-fetcher)
+- [MongoDB](https://www.mongodb.com)
 
 ### Install & run
 
