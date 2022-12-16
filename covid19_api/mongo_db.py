@@ -4,7 +4,7 @@ from motor.motor_asyncio import AsyncIOMotorClient as Client
 
 # Read config file
 config = configparser.RawConfigParser()
-config.read('config.ini')
+config.read("config.ini")
 
 
 class MongoDatabase:
@@ -13,10 +13,10 @@ class MongoDatabase:
     """
 
     def __init__(self):
-        database = config['DEFAULT']['database']
-        collection_country = config['DEFAULT']['collection_country']
-        collection_article = config['DEFAULT']['collection_article']
-        connection_string = config['DEFAULT']['connection_string']
+        database = config["DEFAULT"]["database"]
+        collection_country = config["DEFAULT"]["collection_country"]
+        collection_article = config["DEFAULT"]["collection_article"]
+        connection_string = config["DEFAULT"]["connection_string"]
 
         self.__client = Client(connection_string)
         self.__database = self.__client[database]
@@ -30,14 +30,14 @@ class MongoDatabase:
         :param name: The country name
         """
 
-        return await self.__collection_country.find_one({'name': name})
+        return await self.__collection_country.find_one({"name": name})
 
     def get_all_countries(self):
-        """ Return all countries """
+        """Return all countries"""
 
         return self.__collection_country.find()
 
     def get_all_articles(self):
-        """ Return all articles """
+        """Return all articles"""
 
         return self.__collection_article.find()
